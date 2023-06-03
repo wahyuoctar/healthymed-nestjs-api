@@ -90,4 +90,11 @@ export class User extends Model {
   comparePasswordSync(password: string): boolean {
     return bcrypt.compareSync(password, this.password);
   }
+
+  @Column
+  lastLogin?: Date;
+
+  @Default(false)
+  @Column
+  isVerified: boolean;
 }
